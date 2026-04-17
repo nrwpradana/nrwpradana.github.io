@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+  <title>WELCOME</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700;900&family=Barlow+Condensed:wght@700;900&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <!-- Background watermark text -->
+  <div class="bg-watermark" id="watermark-text">HOME</div>
+
+  <!-- Top label -->
+  <!--<div class="top-label">Home</div> -->
+
+  <!-- Main card -->
+  <div class="card">
+
+    <!-- Sidebar nav -->
+    <nav class="sidebar">
+      <ul>
+        <li><a href="#" class="active">HOME</a></li>
+        <!--<li><a href="#">WORK</a></li>
+        <li><a href="#">BLOG</a></li>
+        <li><a href="#">CONTACT</a></li>-->
+      </ul>
+    </nav>
+
+    <!-- Main content -->
+    <main class="content">
+      <div class="hero-text">
+        <h1 class="name">NADHIAR RIDHO WAHYU PRADANA</h1>
+        <h2 class="title">Cybersecurity Analyst</h2>
+        <p class="bio">
+          I currently work as a cybersecurity analyst at National Cyber and Crypto Agency of Indonesia. 
+		  At the same time, I am pursuing a Master’s degree in ICT Policy at Handong Global University in Pohang, 
+		  where I am expanding my understanding of technology governance and digital policy.
+        </p>
+      </div>
+
+      <!-- Footer info inside card -->
+      <div class="card-footer">
+        <div class="logo-box">
+          <span class="logo-letter">NRWP</span>
+        </div>
+        <div class="contact-info">
+          <p>hello@yourname.com</p>
+          <p class="social-links">
+            <a href="https://github.com/nrwpradana">Github</a> |
+            <a href="https://www.linkedin.com/in/nadhiar-ridho-wahyu-pradana/">LinkedIn</a>
+          </p>
+        </div>
+      </div>
+    </main>
+
+    <!-- Photo area -->
+    <div class="photo-area">
+      <!-- Replace with your actual photo -->
+      <div class="photo-placeholder">
+        <img src="photo.png" alt="Your Photo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"/>
+        <div class="photo-fallback">
+          <span>Your<br/>Photo</span>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end card -->
+
+  <script>
+    // Update watermark text based on active nav
+    const navLinks = document.querySelectorAll('.sidebar a');
+    const watermark = document.getElementById('watermark-text');
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        navLinks.forEach(l => l.classList.remove('active'));
+        this.classList.add('active');
+        watermark.textContent = this.textContent.charAt(0) + this.textContent.slice(1).toLowerCase();
+      });
+    });
+  </script>
+</body>
+</html>
